@@ -1,16 +1,22 @@
-import BenefitSection from "./BenefitSection"
+'use client';
 
-import { benefits } from "@/data/benefits"
+import { benefits } from '@/data/benefits';
+import BenefitSection from './BenefitSection';
+import StaggeredContainer from '../StaggeredContainer';
 
-const Benefits: React.FC = () => {
+const Benefits = () => {
     return (
-        <div id="features">
-            <h2 className="sr-only">Features</h2>
-            {benefits.map((item, index) => {
-                return <BenefitSection key={index} benefit={item} imageAtRight={index % 2 !== 0} />
-            })}
-        </div>
-    )
-}
+        <StaggeredContainer delay={0.2} staggerChildren={0.15}>
+            {benefits.map((benefit, index) => (
+                <BenefitSection 
+                    key={index} 
+                    benefit={benefit} 
+                    index={index}
+                    isImageLeft={index % 2 === 0}
+                />
+            ))}
+        </StaggeredContainer>
+    );
+};
 
-export default Benefits
+export default Benefits;

@@ -7,10 +7,10 @@ export const footerDetails: {
     telephone: string;
     socials: ISocials;
 } = {
-    subheading: "Empowering businesses with cutting-edge financial technology solutions.",
+    subheading: "Expert college admissions guidance to help you get into your dream school.",
     quickLinks: [
         {
-            text: "Features",
+            text: "Services",
             url: "#features"
         },
         {
@@ -18,20 +18,23 @@ export const footerDetails: {
             url: "#pricing"
         },
         {
-            text: "Testimonials",
+            text: "Success Stories",
             url: "#testimonials"
+        },
+        {
+            text: "FAQ",
+            url: "#faq"
+        },
+        {
+            text: "Contact",
+            url: "#contact"
         }
     ],
-    email: 'address@yoursite.com',
-    telephone: '+1 (123) 456-7890',
+    email: 'contact@uniconsultants.com',
+    telephone: '+1 (800) 555-0123',
     socials: {
-        // github: 'https://github.com',
-        // x: 'https://twitter.com/x',
-        twitter: 'https://twitter.com/Twitter',
-        facebook: 'https://facebook.com',
-        // youtube: 'https://youtube.com',
-        linkedin: 'https://www.linkedin.com',
-        // threads: 'https://www.threads.net',
-        instagram: 'https://www.instagram.com',
+        instagram: 'https://www.instagram.com/uniconsultants',
+        twitter: 'https://twitter.com/uniconsultants',
+        linkedin: 'https://www.linkedin.com/company/uniconsultants'
     }
 }

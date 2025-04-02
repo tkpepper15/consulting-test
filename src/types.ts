@@ -6,8 +6,8 @@ export interface IMenuItem {
 export interface IBenefit {
     title: string;
     description: string;
-    imageSrc: string;
-    bullets: IBenefitBullet[]
+    features: string[];
+    image: string;
 }
 
 export interface IBenefitBullet {
@@ -18,7 +18,9 @@ export interface IBenefitBullet {
 
 export interface IPricing {
     name: string;
-    price: number | string;
+    monthlyPrice: number;
+    yearlyPrice: number;
+    popular?: boolean;
     features: string[];
 }
 
@@ -31,7 +33,6 @@ export interface ITestimonial {
     name: string;
     role: string;
     message: string;
-    avatar: string;
 }
 
 export interface IStats {

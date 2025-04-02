@@ -1,44 +1,128 @@
 import React from 'react';
-import Image from 'next/image';
-
-import AppStoreButton from './AppStoreButton';
-import PlayStoreButton from './PlayStoreButton';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { HiOutlineAcademicCap } from 'react-icons/hi';
 
 import { heroDetails } from '@/data/hero';
+import { siteDetails } from '@/data/siteDetails';
 
 const Hero: React.FC = () => {
     return (
         <section
             id="hero"
-            className="relative flex items-center justify-center pb-0 pt-32 md:pt-40 px-5"
+            className="relative min-h-[85vh] flex flex-col items-center justify-center pt-16 pb-12 md:pt-20 md:pb-14 px-5 overflow-hidden"
         >
-            <div className="absolute left-0 top-0 bottom-0 -z-10 w-full">
-                <div className="absolute inset-0 h-full w-full bg-hero-background bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_60%,transparent_100%)]">
-                </div>
+            {/* Hero-specific top and bottom accent bars */}
+            <div className="absolute inset-0 -z-10">
+                {/* Top and bottom accent bars */}
+                <div className="absolute left-0 right-0 top-0 h-6 bg-gradient-to-r from-primary/80 to-primary/90" style={{ transformOrigin: 'center' }}></div>
+                <div className="absolute left-0 right-0 bottom-0 h-6 bg-gradient-to-r from-accent/70 to-accent/80" style={{ transformOrigin: 'center' }}></div>
             </div>
-
-            <div className="absolute left-0 right-0 bottom-0 backdrop-blur-[2px] h-40 bg-gradient-to-b from-transparent via-[rgba(233,238,255,0.5)] to-[rgba(202,208,230,0.5)]">
-            </div>
-
-            <div className="text-center">
-                <h1 className="text-4xl md:text-6xl md:leading-tight font-bold text-foreground max-w-lg md:max-w-2xl mx-auto">{heroDetails.heading}</h1>
-                <p className="mt-4 text-foreground max-w-lg mx-auto">{heroDetails.subheading}</p>
-                <div className="mt-6 flex flex-col sm:flex-row items-center sm:gap-4 w-fit mx-auto">
-                    <AppStoreButton dark />
-                    <PlayStoreButton dark />
-                </div>
-                <Image
-                    src={heroDetails.centerImageSrc}
-                    width={384}
-                    height={340}
-                    quality={100}
-                    sizes="(max-width: 768px) 100vw, 384px"
-                    priority={true}
-                    unoptimized={true}
-                    alt="app mockup"
-                    className='relative mt-12 md:mt-16 mx-auto z-10'
-                />
-            </div>
+            
+            <motion.div 
+                className="relative max-w-4xl mx-auto z-10 flex flex-col items-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.9, ease: [0.22, 0.03, 0.26, 1.0] }}
+                style={{ transformOrigin: 'center' }}
+            >
+                {/* Site badge with improved design */}
+                <motion.div 
+                    className="inline-flex items-center gap-2 px-4 py-1.5 bg-white border-2 border-primary/70 rounded-lg mb-5 shadow-md"
+                    initial={{ opacity: 0, scale: 0.8, y: -10 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    transition={{ delay: 0.2, duration: 0.7, ease: [0.22, 0.03, 0.26, 1.0] }}
+                    style={{ transformOrigin: 'center' }}
+                >
+                    <HiOutlineAcademicCap className="text-primary text-lg" />
+                    <span className="font-sans text-xs font-bold text-primary">Reserve for the '30 Cycle</span>
+                </motion.div>
+                
+                {/* Main heading with improved wave underline */}
+                <motion.h1 
+                    className="font-sans text-4xl md:text-6xl font-extrabold text-heading leading-tight text-center mb-4 relative"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.3, duration: 0.8, ease: [0.22, 0.03, 0.26, 1.0] }}
+                    style={{ transformOrigin: 'center' }}
+                >
+                    <span className="relative inline-block pb-2" style={{ transformOrigin: 'center' }}>
+                        {heroDetails.heading}
+                        <svg className="absolute bottom-0 left-0 w-full -z-20" viewBox="0 0 100 15" preserveAspectRatio="none" style={{ transformOrigin: 'center' }}>
+                            <motion.path 
+                                d="M0,7 C20,1 50,13 80,5 C90,3 95,7 100,6" 
+                                fill="none" 
+                                stroke="var(--primary)" 
+                                strokeWidth="3" 
+                                strokeLinecap="round" 
+                                strokeOpacity="0.4"
+                                initial={{ pathLength: 0 }}
+                                animate={{ pathLength: 1 }}
+                                transition={{ delay: 0.6, duration: 1.2, ease: "easeOut" }}
+                                style={{ transformOrigin: 'center' }}
+                            />
+                        </svg>
+                    </span>
+                </motion.h1>
+                
+                {/* Subheading */}
+                <motion.p 
+                    className="font-sans text-base md:text-lg text-muted max-w-2xl mx-auto text-center leading-relaxed"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4, duration: 0.7, ease: [0.22, 0.03, 0.26, 1.0] }}
+                    style={{ transformOrigin: 'center' }}
+                >
+                    {heroDetails.subheading}
+                </motion.p>
+                
+                {/* CTA buttons with improved styling */}
+                <motion.div 
+                    className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5, duration: 0.7, ease: [0.22, 0.03, 0.26, 1.0] }}
+                    style={{ transformOrigin: 'center' }}
+                >
+                    <Link 
+                        href="#pricing" 
+                        className="btn btn-primary inline-flex items-center justify-center relative overflow-hidden group"
+                        style={{ transformOrigin: 'center' }}
+                    >
+                        <span className="relative z-10">View Pricing</span>
+                        <div className="absolute inset-0 bg-primary/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" style={{ transformOrigin: 'center' }}></div>
+                        <div className="absolute -inset-1 bg-gradient-to-r from-primary/30 to-primary/10 blur opacity-0 group-hover:opacity-40 transition-opacity duration-500" style={{ transformOrigin: 'center' }}></div>
+                    </Link>
+                    <Link 
+                        href="#contact" 
+                        className="btn btn-secondary inline-flex items-center justify-center relative overflow-hidden group"
+                        style={{ transformOrigin: 'center' }}
+                    >
+                        <span className="relative z-10">Contact Us</span>
+                        <div className="absolute inset-0 bg-accent/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" style={{ transformOrigin: 'center' }}></div>
+                        <div className="absolute -inset-1 bg-gradient-to-r from-accent/30 to-accent/10 blur opacity-0 group-hover:opacity-40 transition-opacity duration-500" style={{ transformOrigin: 'center' }}></div>
+                    </Link>
+                </motion.div>
+                
+                {/* Mentor badge - updated to Ivy League+ */}
+                <motion.div 
+                    className="mt-10 flex items-center justify-center"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.6, duration: 0.7, ease: [0.22, 0.03, 0.26, 1.0] }}
+                    style={{ transformOrigin: 'center' }}
+                >
+                    <Link 
+                        href="#team"
+                        className="relative z-10 py-2 px-4 bg-white border border-slate-200 font-sans rounded-md shadow-sm hover:-translate-y-0.5 transition-transform duration-300 flex items-center gap-1"
+                        style={{ transformOrigin: 'center' }}
+                    >
+                        <span className="font-medium text-muted text-sm">Meet Our</span>
+                        <span className="font-bold text-primary text-sm">Ivy League+ Mentors</span>
+                        <div className="absolute -bottom-1 -right-1 w-2 h-2 bg-primary rounded-sm" style={{ transformOrigin: 'center' }}></div>
+                    </Link>
+                </motion.div>
+            </motion.div>
         </section>
     );
 };
