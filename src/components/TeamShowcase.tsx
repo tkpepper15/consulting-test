@@ -2,59 +2,26 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { teamMembers } from '@/data/team';
-import TeamAvatar from './TeamAvatar';
 import StaggeredContainer from './StaggeredContainer';
-import LazyAnimation from './LazyAnimation';
-import { FaGraduationCap, FaBook, FaUniversity, FaAward, FaCertificate, FaMedal } from 'react-icons/fa';
-import { HiOutlineAcademicCap } from 'react-icons/hi';
+import { FaGraduationCap, FaUniversity, FaAward, FaCertificate, FaMedal, FaBook } from 'react-icons/fa';
 import { MdSchool } from 'react-icons/md';
 
-const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-        opacity: 1,
-        transition: {
-            delayChildren: 0.3,
-            staggerChildren: 0.2
-        }
-    }
-};
-
-const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-        y: 0,
-        opacity: 1,
-        transition: {
-            type: "spring",
-            bounce: 0.3
-        }
-    }
-};
-
-// Header underline styles
-const headingUnderlineStyles = [
-    <svg width="100%" height="10" viewBox="0 0 100 10" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,5 Q25,0 50,5 T100,5" fill="none" stroke="var(--primary)" strokeWidth="3" strokeLinecap="round" strokeOpacity="0.4" />
-    </svg>
+// Array of achievement icons
+const achievementIcons = [
+    <FaAward key="award-icon" size={12} />,
+    <FaMedal key="medal-icon" size={12} />,
+    <FaCertificate key="certificate-icon" size={12} />,
+    <FaBook key="book-icon" size={12} />
 ];
 
 // Name underline styles
 const nameUnderlineStyles = [
-    <svg width="100%" height="5" viewBox="0 0 100 5" xmlns="http://www.w3.org/2000/svg">
+    <svg key="name-underline-1" width="100%" height="5" viewBox="0 0 100 5" xmlns="http://www.w3.org/2000/svg">
         <path d="M0,3 Q25,0 50,3 T100,3" fill="none" stroke="var(--primary)" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.3" />
     </svg>,
-    <svg width="100%" height="5" viewBox="0 0 100 5" xmlns="http://www.w3.org/2000/svg">
+    <svg key="name-underline-2" width="100%" height="5" viewBox="0 0 100 5" xmlns="http://www.w3.org/2000/svg">
         <path d="M0,3 L20,4 L40,2 L60,4 L80,1 L100,3" fill="none" stroke="var(--primary)" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.3" />
     </svg>
-];
-
-// Array of achievement icons
-const achievementIcons = [
-    <FaAward size={12} />,
-    <FaMedal size={12} />,
-    <FaCertificate size={12} />,
-    <FaBook size={12} />
 ];
 
 const TeamShowcase: React.FC = () => {
@@ -71,11 +38,6 @@ const TeamShowcase: React.FC = () => {
                     type="scale"
                 >
                     {teamMembers.map((member, index) => {
-                        // Add visual randomness with slight rotation variations
-                        const rotation = index % 2 === 0 
-                            ? `rotate(${0.1 + Math.random() * 0.4}deg)` 
-                            : `rotate(-${0.1 + Math.random() * 0.4}deg)`;
-                        
                         return (
                             <motion.div 
                                 key={member.name}

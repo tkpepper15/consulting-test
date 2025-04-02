@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import { HiOutlineAcademicCap } from 'react-icons/hi';
 
 import { heroDetails } from '@/data/hero';
-import { siteDetails } from '@/data/siteDetails';
 
 const Hero: React.FC = () => {
     return (
@@ -35,7 +34,7 @@ const Hero: React.FC = () => {
                     style={{ transformOrigin: 'center' }}
                 >
                     <HiOutlineAcademicCap className="text-primary text-lg" />
-                    <span className="font-sans text-xs font-bold text-primary">Reserve for the '30 Cycle</span>
+                    <span className="font-sans text-xs font-bold text-primary">Reserve for the &apos;30 Cycle</span>
                 </motion.div>
                 
                 {/* Main heading with improved wave underline */}

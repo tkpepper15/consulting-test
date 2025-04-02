@@ -1,6 +1,3 @@
-import { FiEdit, FiFileText, FiMessageSquare, FiStar, FiUsers, FiCheckCircle } from "react-icons/fi";
-import { FaUniversity } from "react-icons/fa";
-
 import { IBenefit } from "@/types"
 
 export const benefits: IBenefit[] = [

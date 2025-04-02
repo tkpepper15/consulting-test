@@ -1,7 +1,22 @@
 import { motion } from "framer-motion"
 
 import { IBenefitBullet } from "@/types"
-import { childVariants } from "./BenefitSection"
+
+const childVariants = {
+    offscreen: {
+        opacity: 0,
+        y: 10,
+    },
+    onscreen: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            type: "spring",
+            bounce: 0.1,
+            duration: 0.4,
+        }
+    },
+};
 
 const BenefitBullet: React.FC<IBenefitBullet> = ({ title, description, icon }: IBenefitBullet) => {
     return (
