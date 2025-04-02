@@ -9,7 +9,6 @@ import { BsCardChecklist, BsCalendarCheck } from 'react-icons/bs';
 interface BenefitSectionProps {
     benefit: IBenefit;
     index: number;
-    isImageLeft: boolean;
 }
 
 // Setup benefit title icons based on title text
@@ -82,7 +81,7 @@ const getColorScheme = (index: number) => {
     }
 };
 
-const BenefitSection: React.FC<BenefitSectionProps> = ({ benefit, index, isImageLeft }) => {    
+const BenefitSection: React.FC<BenefitSectionProps> = ({ benefit, index }) => {    
     const colors = getColorScheme(index);
     
     return (

@@ -24,7 +24,6 @@ const Benefits = () => {
                         key={index} 
                         benefit={benefit} 
                         index={index}
-                        isImageLeft={index % 2 === 0}
                     />
                 ))}
             </StaggeredContainer>
