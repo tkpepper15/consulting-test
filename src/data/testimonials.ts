@@ -3,33 +3,18 @@ import { siteDetails } from "./siteDetails";
 
 export const testimonials: ITestimonial[] = [
     {
-        name: 'Alex C.',
-        role: 'Harvard \'26',
-        message: `${siteDetails.siteName} helped me highlight experiences I would have never thought were important. The mentorship completely transformed my application.`
+        name: 'Jordan S.',
+        role: 'Harvard \'27',
+        message: `With ${siteDetails.siteName}'s guidance, I was able to craft a compelling research narrative that helped me stand out. Their expertise was instrumental in my Harvard acceptance.`
     },
     {
-        name: 'Sophia R.',
-        role: 'Princeton \'25',
-        message: `After being waitlisted, I worked with ${siteDetails.siteName} for my transfer application. Their guidance on showcasing growth in my essays made all the difference.`
+        name: 'Taylor W.',
+        role: 'UPenn LSM Program \'26',
+        message: `The mentors at ${siteDetails.siteName} understood exactly what it takes to get into competitive dual-degree programs. Their insider perspective on UPenn's LSM was game-changing.`
     },
     {
-        name: 'Jamal W.',
-        role: 'UPenn \'25',
-        message: `Having a current student guide me through each step made the process less intimidating and more strategic. The interview prep was invaluable.`
+        name: 'Avery C.',
+        role: 'Duke \'27',
+        message: `As a STEM student with research interests, ${siteDetails.siteName} helped me position my accomplishments effectively. I received over $200,000 in scholarship offers thanks to their guidance.`
     },
-    {
-        name: 'Emma T.',
-        role: 'Yale \'24',
-        message: `The essay coaching I received was superb. My mentor helped me craft a narrative that stood out while remaining authentic to my experiences.`
-    },
-    {
-        name: 'Daniel K.',
-        role: 'Duke \'26',
-        message: `As a first-generation college student, I had no idea where to start. ${siteDetails.siteName} provided structure and confidence throughout the entire process.`
-    },
-    {
-        name: 'Mei L.',
-        role: 'Cornell \'25',
-        message: `The personalized approach to my application strategy made all the difference. They recognized strengths in my profile that other counselors missed.`
-    }
 ];

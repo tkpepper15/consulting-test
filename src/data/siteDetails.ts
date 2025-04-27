@@ -1,9 +1,9 @@
 export const siteDetails = {
-    siteName: 'UniConsultants',
-    siteUrl: 'https://uniconsultants.com/',
+    siteName: 'UniPrep',
+    siteUrl: 'https://uniprep.com/',
     metadata: {
-        title: 'UniConsultants | College Admissions Experts',
-        description: 'Expert guidance from Ivy League+ mentors to help you stand out in today\'s competitive college admissions.',
+        title: 'UniPrep | Ivy League+ Mentors for College & NCSSM Admissions',
+        description: 'Expert guidance from accomplished mentors to help you stand out in competitive college and NCSSM admissions. Learn from mentors with $500k+ in scholarships and international awards.',
     },
     language: 'en-us',
     locale: 'en-US',

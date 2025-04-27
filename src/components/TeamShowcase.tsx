@@ -1,116 +1,178 @@
 "use client"
-import React from 'react';
+import React, { useState } from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { teamMembers } from '@/data/team';
-import StaggeredContainer from './StaggeredContainer';
-import { FaGraduationCap, FaUniversity, FaAward, FaCertificate, FaMedal, FaBook } from 'react-icons/fa';
-import { MdSchool } from 'react-icons/md';
+import { FaTrophy, FaMedal, FaStar, FaAward, FaGraduationCap, FaChevronDown, FaChevronUp } from 'react-icons/fa';
 
-// Array of achievement icons
+// Function to get the college logo path based on education name
+const getCollegeLogo = (education: string): string => {
+    if (education.includes('Harvard')) return '/images/Harvard.png';
+    if (education.includes('Duke')) return '/images/Duke.png';
+    if (education.includes('UPenn')) return '/images/Penn.png';
+    // Default fallback
+    return '/images/logo.png';
+};
+
+// Array of refined achievement icons with larger size
 const achievementIcons = [
-    <FaAward key="award-icon" size={12} />,
-    <FaMedal key="medal-icon" size={12} />,
-    <FaCertificate key="certificate-icon" size={12} />,
-    <FaBook key="book-icon" size={12} />
+    <FaAward key="award-icon" size={18} className="text-primary" />,
+    <FaTrophy key="trophy-icon" size={18} className="text-primary" />,
+    <FaMedal key="medal-icon" size={18} className="text-primary" />,
+    <FaStar key="star-icon" size={18} className="text-primary" />,
+    <FaGraduationCap key="cap-icon" size={18} className="text-primary" />
 ];
 
-// Name underline styles
-const nameUnderlineStyles = [
-    <svg key="name-underline-1" width="100%" height="5" viewBox="0 0 100 5" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,3 Q25,0 50,3 T100,3" fill="none" stroke="var(--primary)" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.3" />
-    </svg>,
-    <svg key="name-underline-2" width="100%" height="5" viewBox="0 0 100 5" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,3 L20,4 L40,2 L60,4 L80,1 L100,3" fill="none" stroke="var(--primary)" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.3" />
-    </svg>
-];
+// CSS for masonry layout
+const masonryStyles = `
+  .masonry {
+    column-count: 1;
+    column-gap: 1rem;
+  }
+  
+  .sm\\:masonry-sm {
+    column-count: 1;
+  }
+  
+  @media (min-width: 768px) {
+    .md\\:masonry-md {
+      column-count: 2;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .lg\\:masonry-lg {
+      column-count: 2;
+    }
+  }
+  
+  @media (min-width: 1280px) {
+    .xl\\:masonry-xl {
+      column-count: 3;
+    }
+  }
+  
+  .break-inside-avoid {
+    break-inside: avoid;
+  }
+`;
 
 const TeamShowcase: React.FC = () => {
+    const [expandedBios, setExpandedBios] = useState<{[key: string]: boolean}>({});
+    
+    const toggleBio = (name: string) => {
+        setExpandedBios(prev => ({
+            ...prev,
+            [name]: !prev[name]
+        }));
+    };
+
     return (
         <section
             id="team"
-            className="relative py-12 overflow-hidden"
+            className="relative py-8 overflow-hidden bg-white w-full"
         >
-            <div className="max-w-6xl mx-auto px-4">
-                <StaggeredContainer 
-                    className="grid gap-4 grid-cols-1 sm:grid-cols-3 lg:grid-cols-4"
-                    staggerChildren={0.06}
-                    delay={0.2}
-                    type="scale"
-                >
+            <style jsx>{masonryStyles}</style>
+            <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] bg-[length:20px_20px] opacity-25"></div>
+            <div className="w-full mx-auto px-1 sm:px-3 relative">
+                <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 w-full">
                     {teamMembers.map((member, index) => {
+                        const isExpanded = expandedBios[member.name] || false;
+                        
                         return (
                             <motion.div 
                                 key={member.name}
-                                variants={{}}
-                                className="relative"
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ 
+                                    duration: 0.5, 
+                                    delay: index * 0.1 % 0.4,
+                                    ease: "easeOut" 
+                                }}
+                                className="w-full"
+                                style={{ height: 'fit-content' }}
                             >
-                                <div className={`bg-white border border-slate-200 rounded-lg overflow-hidden transform ${index % 2 === 0 ? 'rotate-[0.2deg]' : 'rotate-[-0.2deg]'} hover:shadow-md transition-shadow relative group`}>
-                                    {/* Corner decoration */}
-                                    <div className="absolute top-0 right-0 w-6 h-6 overflow-hidden">
-                                        <div className={`absolute transform rotate-45 ${index % 2 === 0 ? 'bg-primary' : 'bg-accent'} w-8 h-8 -top-4 -right-4 opacity-40`}></div>
-                                    </div>
+                                <div className="bg-white border-0 shadow-lg hover:shadow-xl rounded-lg overflow-hidden transition-all duration-300 flex flex-col w-full h-full">
+                                    {/* Colorful gradient bar at top - use member.id to ensure consistent rendering */}
+                                    <div className="h-1.5 bg-gradient-to-r from-primary to-primary/80 w-full"></div>
                                     
-                                    {/* Top colorful bar - alternating colors */}
-                                    <div className={`h-1 ${index % 2 === 0 ? 'bg-primary' : 'bg-accent'} w-full`}></div>
-                                    
-                                    {/* Image container */}
-                                    <div className="relative h-40 overflow-hidden border-b border-slate-100">
-                                        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20 z-10"></div>
-                                        
-                                        {/* Stylized image placeholder */}
-                                        <div className="h-full w-full flex items-center justify-center">
-                                            <div className={`absolute inset-0 ${index % 2 === 0 ? 'bg-primary/80' : 'bg-accent/80'}`}></div>
+                                    <div className="p-6 sm:p-7 md:p-8 flex flex-col flex-grow">
+                                        <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 mb-6">
+                                            {/* Headshot Image */}
+                                            <div className="w-28 h-28 rounded-full overflow-hidden shadow-md flex-shrink-0 ring-2 ring-slate-50">
+                                                <Image 
+                                                    src={member.imageSrc} 
+                                                    alt={`${member.name} Headshot`} 
+                                                    width={112} 
+                                                    height={112}
+                                                    className="w-full h-full object-cover"
+                                                />
+                                            </div>
                                             
-                                            {/* Placeholder design elements */}
-                                            <div className="absolute inset-0 flex flex-col items-center justify-center">
-                                                <div className="relative w-20 h-20 rounded-full bg-white/20 flex items-center justify-center">
-                                                    <div className="absolute w-16 h-16 rounded-full border-2 border-dashed border-white/60 animate-spin-slow"></div>
-                                                    <span className="font-sans font-bold text-white text-3xl">{member.name.charAt(0)}</span>
+                                            <div className="text-center sm:text-left">
+                                                <h3 className="font-sans font-bold text-xl text-heading mt-3 sm:mt-0">
+                                                    {member.name}
+                                                </h3>
+                                                
+                                                <div className="flex items-center justify-center sm:justify-start mt-2">
+                                                    <Image 
+                                                        src={getCollegeLogo(member.education)}
+                                                        alt={member.education}
+                                                        width={120}
+                                                        height={45}
+                                                        className="h-9 w-auto object-contain"
+                                                        priority
+                                                        quality={100}
+                                                    />
                                                 </div>
-                                                
-                                                {/* Decorative pattern */}
-                                                <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.15)_1px,transparent_1px)] bg-[length:10px_10px] opacity-50"></div>
-                                                
-                                                {/* Decorative accent lines */}
-                                                <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-black/30 to-transparent"></div>
                                             </div>
                                         </div>
-                                    </div>
-                                    
-                                    {/* Content */}
-                                    <div className="p-3">
-                                        <h3 className="font-sans font-bold text-sm text-heading relative inline-block">
-                                            {member.name}
-                                            <span className="relative block h-2.5 mt-0.5 overflow-hidden">
-                                                {React.cloneElement(nameUnderlineStyles[index % nameUnderlineStyles.length], { className: "absolute top-0 left-0 w-full" })}
-                                            </span>
-                                        </h3>
-                                        <p className="text-xs font-medium text-primary/80 mb-2 flex items-center">
-                                            {index % 2 === 0 ? <FaGraduationCap className="mr-1 text-primary/60" size={12} /> : <FaUniversity className="mr-1 text-accent/60" size={12} />}
-                                            {member.role}
-                                        </p>
                                         
-                                        <div className="mb-2 inline-flex items-center gap-1">
-                                            <MdSchool className={`text-${index % 2 === 0 ? 'primary' : 'accent'}/60`} size={14} />
-                                            <span className="text-xs font-medium text-heading">{member.education}</span>
+                                        {/* Bio with Read More */}
+                                        <div className="mb-6">
+                                            <div className={`relative text-sm text-muted leading-relaxed ${!isExpanded ? 'max-h-[150px] overflow-hidden' : ''}`}>
+                                                <p>
+                                                    {member.bio}
+                                                </p>
+                                                {!isExpanded && member.bio.length > 150 && (
+                                                    <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-white to-transparent"></div>
+                                                )}
+                                            </div>
+                                            {member.bio.length > 150 && (
+                                                <button 
+                                                    onClick={() => toggleBio(member.name)} 
+                                                    className="mt-2 font-medium text-primary hover:underline inline-flex items-center text-xs transition-colors duration-200"
+                                                    aria-expanded={isExpanded}
+                                                >
+                                                    {isExpanded ? (
+                                                        <>Read less <FaChevronUp size={10} className="ml-1.5" /></>
+                                                    ) : (
+                                                        <>Read more <FaChevronDown size={10} className="ml-1.5" /></>
+                                                    )}
+                                                </button>
+                                            )}
                                         </div>
                                         
-                                        <ul className="space-y-1">
-                                            {member.accomplishments.slice(0, 2).map((achievement, i) => (
-                                                <li key={i} className="flex items-start gap-1.5 text-xs">
-                                                    <span className="flex-shrink-0 mt-0.5 text-primary/60">
-                                                        {achievementIcons[i % achievementIcons.length]}
-                                                    </span>
-                                                    <span className="text-muted">{achievement}</span>
-                                                </li>
-                                            ))}
-                                        </ul>
+                                        {/* Achievements with refined icons */}
+                                        <div className="mt-auto pt-4 border-t border-slate-100">
+                                            <h4 className="text-sm font-semibold text-heading mb-3">Key Achievements</h4>
+                                            <ul className="space-y-3">
+                                                {member.accomplishments.map((achievement, i) => (
+                                                    <li key={i} className="flex items-start gap-3">
+                                                        <span className="flex-shrink-0 mt-0.5">
+                                                            {achievementIcons[i % achievementIcons.length]}
+                                                        </span>
+                                                        <span className="text-sm text-muted">{achievement}</span>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </motion.div>
                         );
                     })}
-                </StaggeredContainer>
+                </div>
             </div>
         </section>
     );

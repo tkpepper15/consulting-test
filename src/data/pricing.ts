@@ -2,48 +2,43 @@ import { IPricing } from "@/types";
 
 export const tiers: IPricing[] = [
     {
-        name: 'Essential',
-        monthlyPrice: 79,
-        yearlyPrice: 799,
+        name: 'Free Consultation',
+        monthlyPrice: 0,
+        yearlyPrice: 0,
         features: [
-            'Common App strategy',
-            'Personal statement review',
-            '2 supplemental essays',
-            'Mock interview',
-            'College list (10 schools)',
-            'Email support'
+            '30-minute consultation',
+            '30 minutes of offline editing',
+            'Personalized feedback',
+            'Application strategy assessment',
+            'School fit analysis'
         ],
     },
     {
-        name: 'Advantage',
-        monthlyPrice: 149,
-        yearlyPrice: 1499,
+        name: 'Single Session',
+        monthlyPrice: 75,
+        yearlyPrice: 75,
         popular: true,
         features: [
-            'Complete application guidance',
-            'Personal statement development',
-            '5 supplemental essays',
-            '2 mock interviews',
-            'Resume optimization',
-            'College list with fit analysis',
-            'Bi-weekly strategy calls',
-            'Scholarship guidance'
+            '1-hour mentoring session',
+            'Offline editing before session',
+            'Targeted essay review',
+            'Profile strengthening',
+            'Activity list optimization',
+            'Personalized action plan'
         ],
     },
     {
-        name: 'Elite',
-        monthlyPrice: 299,
-        yearlyPrice: 2999,
+        name: 'Comprehensive Package',
+        monthlyPrice: 300,
+        yearlyPrice: 300,
         features: [
-            'Full application management',
-            'Unlimited essay support',
-            'Weekly 1:1 mentoring',
-            'Interview preparation',
+            'Five 1-hour mentoring sessions',
+            'Offline editing before each session',
             'Complete application review',
-            'Extended college list',
-            'Scholarship strategy',
-            'Priority 24/7 support',
-            'Decision guidance'
+            'Essay development and refinement',
+            'Interview preparation',
+            'Scholarship application guidance',
+            'Monthly check-ins and progress tracking'
         ],
     },
 ]

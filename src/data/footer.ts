@@ -30,11 +30,11 @@ export const footerDetails: {
             url: "#contact"
         }
     ],
-    email: 'contact@uniconsultants.com',
+    email: 'contact@uniprep.com',
     telephone: '+1 (800) 555-0123',
     socials: {
-        instagram: 'https://www.instagram.com/uniconsultants',
-        twitter: 'https://twitter.com/uniconsultants',
-        linkedin: 'https://www.linkedin.com/company/uniconsultants'
+        instagram: 'https://www.instagram.com/uniprep',
+        twitter: 'https://twitter.com/uniprep',
+        linkedin: 'https://www.linkedin.com/company/uniprep'
     }
 }

@@ -4,11 +4,12 @@ import { IPricing } from "@/types";
 type PricingColumnProps = {
     tier: IPricing;
     highlight?: boolean;
-    billingCycle: 'monthly' | 'yearly';
+    tierColor: string;
+    tierName: string;
 }
 
-const PricingColumn: React.FC<PricingColumnProps> = ({ tier, highlight, billingCycle }) => {
-    const price = billingCycle === 'monthly' ? tier.monthlyPrice : tier.yearlyPrice;
+const PricingColumn: React.FC<PricingColumnProps> = ({ tier, highlight, tierColor, tierName }) => {
+    const price = tier.monthlyPrice;
     
     return (
         <div className="relative">
@@ -22,12 +23,13 @@ const PricingColumn: React.FC<PricingColumnProps> = ({ tier, highlight, billingC
             )}
             
             <div className={`relative flex flex-col rounded-xl shadow-sm mt-4 overflow-hidden ${highlight ? 'bg-primary/[0.08] border-2 border-primary/30' : 'bg-white border border-slate-200'}`}>
-                {/* Decorative elements */}
-                <div className={`absolute top-0 left-0 right-0 h-1.5 ${highlight ? 'bg-gradient-to-r from-primary via-primary to-accent' : 'bg-gradient-to-r from-primary/30 to-accent/30'}`}></div>
+                {/* Tier color bar at top */}
+                <div className={`absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r ${tierColor}`}></div>
                 
                 <div className="p-5 md:p-6 flex-grow">
-                    {/* Header */}
+                    {/* Header with tier name */}
                     <div className="mb-4">
+                        <span className="text-xs uppercase font-semibold tracking-wider mb-1 inline-block rounded px-2 py-0.5 bg-slate-100">{tierName}</span>
                         <h3 className="text-lg font-semibold text-heading mb-1 relative inline-block">
                             {tier.name}
                             <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary/20 transform skew-x-12"></div>
@@ -41,13 +43,8 @@ const PricingColumn: React.FC<PricingColumnProps> = ({ tier, highlight, billingC
                             <span className="text-3xl font-bold text-heading">
                                 ${price}
                             </span>
-                            <span className="text-sm text-muted ml-1">/{billingCycle === 'monthly' ? 'mo' : 'yr'}</span>
+                            <span className="text-sm text-muted ml-2">one-time</span>
                         </div>
-                        {billingCycle === 'yearly' && (
-                            <div className="mt-1 text-xs text-green-600 font-medium">
-                                Save ${Math.round(tier.monthlyPrice * 12 - tier.yearlyPrice)} per year
-                            </div>
-                        )}
                     </div>
                     
                     {/* Feature list */}
@@ -64,7 +61,7 @@ const PricingColumn: React.FC<PricingColumnProps> = ({ tier, highlight, billingC
                 {/* Button */}
                 <div className={`p-5 md:p-6 border-t ${highlight ? 'border-primary/20' : 'border-slate-200'}`}>
                     <a 
-                        href="#" 
+                        href="#contact" 
                         className={`btn ${highlight ? 'btn-primary' : 'btn-secondary'} w-full`}
                     >
                         Get Started
@@ -78,12 +75,12 @@ const PricingColumn: React.FC<PricingColumnProps> = ({ tier, highlight, billingC
 // Helper function for tier descriptions
 function getTierDescription(tierName: string): string {
     switch(tierName) {
-        case 'Essential':
-            return 'Basic application support';
-        case 'Advantage':
-            return 'Comprehensive guidance';
-        case 'Elite':
-            return 'Premium concierge service';
+        case 'Free Consultation':
+            return 'Initial guidance session';
+        case 'Single Session':
+            return 'Focused mentoring session';
+        case 'Comprehensive Package':
+            return 'Complete application support';
         default:
             return 'Application support';
     }

@@ -25,8 +25,8 @@ const HomePage: React.FC = () => {
           <Container usePaper={false}>
             <Section
               id="team"
-              title="Meet Our Ivy League Mentors"
-              description="Expert guidance from graduates of the world's top universities"
+              title="Meet Our Ivy League+ Mentors"
+              description="Expert guidance from students at the world's top universities with experience in the current admissions landscape"
             >
               <TeamShowcase />
             </Section>
@@ -40,7 +40,9 @@ const HomePage: React.FC = () => {
           <Section
             id="features"
             title="Our Services"
-            description="Expert guidance throughout your application journey"
+            description="Expert guidance throughout your application journey to the nation’s #1 public high school
+(NCSSM) and Top 20 Universities. Get personalized support with monthly check-ins, SAT and
+ACT prep, class selection, and more!"
           >
             <Benefits />
           </Section>

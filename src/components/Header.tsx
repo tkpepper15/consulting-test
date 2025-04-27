@@ -4,7 +4,8 @@ import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
 import { Transition } from '@headlessui/react';
 import { HiOutlineXMark, HiBars3 } from 'react-icons/hi2';
-import { FaGraduationCap, FaUserGraduate } from 'react-icons/fa';
+import { FaUserGraduate } from 'react-icons/fa';
+import Image from 'next/image';
 
 import { siteDetails } from '@/data/siteDetails';
 import { menuItems } from '@/data/menuItems';
@@ -48,10 +49,13 @@ const Header: React.FC = () => {
                 <nav className="flex justify-between items-center h-10">
                     {/* Logo */}
                     <Link href="/" className="flex items-center gap-1.5 group">
-                        <div className="relative w-6 h-6 flex items-center justify-center">
-                            <div className="absolute inset-0 bg-primary/10 rotate-12 rounded-sm -z-10 group-hover:rotate-6 transition-transform"></div>
-                            <FaGraduationCap className="text-primary w-3.5 h-3.5 relative z-10" />
-                        </div>
+                        <Image 
+                            src="/images/logo.png" 
+                            alt={siteDetails.siteName} 
+                            width={32} 
+                            height={32} 
+                            className="h-8 w-auto"
+                        />
                         <span className="font-sans text-sm font-bold text-heading">
                             {siteDetails.siteName}
                             <span className="absolute w-full h-0.5 bg-primary/20 bottom-0 left-0 transform -skew-x-12 hidden group-hover:block transition-all"></span>
@@ -129,7 +133,7 @@ const Header: React.FC = () => {
                 <div id="mobile-menu" className="md:hidden bg-white border-t border-dashed border-primary/20 shadow-sm">
                     <div className="absolute inset-0 bg-[radial-gradient(#f0f4f8_1px,transparent_1px)] bg-[length:20px_20px] opacity-40 pointer-events-none"></div>
                     <ul className="flex flex-col space-y-2 py-3 px-5 relative">
-                        {menuItems.map(item => {
+                        {menuItems.map((item) => {
                             const isActive = activeSection && item.url.includes(activeSection);
                             return (
                                 <li key={item.text}>

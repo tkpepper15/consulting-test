@@ -6,28 +6,28 @@ import { IStats } from "@/types";
 
 export const stats: IStats[] = [
     {
-        title: "85%",
+        title: "100%",
         icon: <FaUniversity size={34} className="text-blue-500" />,
-        description: "Of our students are accepted to at least one of their top 3 choice schools."
+        description: "Success rate in Ivy League+ admissions with multiple acceptances to top universities and colleges."
     },
     {
-        title: "4x",
-        icon: <FiPercent size={34} className="text-purple-600" />,
-        description: "Higher acceptance rate at Ivy League+ and top-10 universities compared to national average."
-    },
-    {
-        title: "4.9",
-        icon: <BsFillStarFill size={34} className="text-yellow-500" />,
-        description: "Star rating from hundreds of satisfied students and families."
-    },
-    {
-        title: "$12M+",
+        title: "$500k+",
         icon: <FaAward size={34} className="text-green-600" />,
-        description: "In scholarships and financial aid secured by our students in the last year."
+        description: "In merit scholarships and awards secured by our mentors, including prestigious full-ride opportunities."
     },
     {
-        title: "500+",
+        title: "15+",
         icon: <FaUserFriends size={34} className="text-indigo-500" />,
-        description: "Students successfully placed at top-50 universities in the past 5 years."
+        description: "Major national and international awards, including ISEF, EUCYS, Earth Prize, and Presidential Scholarships."
+    },
+    {
+        title: "1590",
+        icon: <FiPercent size={34} className="text-purple-600" />,
+        description: "Perfect and near-perfect SAT scores from our mentors who understand what it takes to excel academically."
+    },
+    {
+        title: "5",
+        icon: <BsFillStarFill size={34} className="text-yellow-500" />,
+        description: "Ivy League+ mentors with dual-degree experience in specialized programs like M&T and LSM at UPenn."
     }
 ];

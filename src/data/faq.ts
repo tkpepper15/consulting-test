@@ -4,15 +4,11 @@ import { siteDetails } from "./siteDetails";
 export const faqs: IFAQ[] = [
     {
         question: `Who are the ${siteDetails.siteName} mentors?`,
-        answer: 'Our team consists of current students and recent graduates from Ivy League+ universities who have successfully navigated the competitive admissions process.',
+        answer: 'Our team consists of current students from Ivy League+ universities who have successfully navigated the competitive admissions process and thrived at NCSSM.',
     },
     {
         question: `How does your consulting process work?`,
         answer: 'We begin with an assessment of your profile, match you with a mentor specializing in your target schools, and create a personalized roadmap for your application journey.',
-    },
-    {
-        question: 'When should I start working with you?',
-        answer: 'Ideally during sophomore or junior year, though we offer specialized programs for seniors during application season. The earlier you start, the more comprehensive our support.',
     },
     {
         question: 'What makes your service different?',
@@ -24,6 +20,6 @@ export const faqs: IFAQ[] = [
     },
     {
         question: 'How are sessions conducted?',
-        answer: 'All mentoring sessions are conducted virtually, with documents shared securely through our client portal.',
+        answer: 'All mentoring sessions are conducted virtually, with meeting links shared directly to clients.',
     }
 ];

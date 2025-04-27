@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
+import Image from 'next/image';
 
 import { siteDetails } from '@/data/siteDetails';
 import { footerDetails } from '@/data/footer';
@@ -7,20 +8,25 @@ import { getPlatformIconByName } from '@/utils';
 
 const Footer: React.FC = () => {
     return (
-        <footer className="relative mt-16 pt-16 pb-10 overflow-hidden bg-white border-t border-primary/10">
-            {/* Footer pattern background */}
-            <div className="absolute inset-0 bg-[radial-gradient(#f0f4f8_1px,transparent_1px)] bg-[length:20px_20px] opacity-20 pointer-events-none"></div>
+        <footer className="bg-white border-t border-slate-100 pt-12 pb-8 relative overflow-hidden">
+            {/* Decorative bg pattern */}
+            <div className="absolute inset-0 bg-[radial-gradient(#f0f4f8_1px,transparent_1px)] bg-[length:20px_20px] opacity-25 pointer-events-none"></div>
             
-            {/* Footer top accent */}
-            <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20"></div>
-            
-            {/* Bottom accent */}
-            <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20"></div>
+            {/* Background decorative elements */}
+            <div className="absolute -top-10 -right-10 w-32 h-32 bg-primary/5 rounded-full transform -skew-x-12 -z-10 blur-xl"></div>
+            <div className="absolute -bottom-20 -left-10 w-32 h-32 bg-accent/5 rounded-full transform skew-x-12 -z-10 blur-xl"></div>
             
             <div className="max-w-5xl w-full mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10 relative">
                 {/* Logo and company description */}
                 <div className="relative">
-                    <Link href="/" className="inline-flex items-center group">
+                    <Link href="/" className="inline-flex items-center gap-2 group">
+                        <Image 
+                            src="/images/logo.png" 
+                            alt={siteDetails.siteName} 
+                            width={32} 
+                            height={32} 
+                            className="h-8 w-auto"
+                        />
                         <span className="font-sans text-base font-bold text-heading relative inline-block">
                             {siteDetails.siteName}
                             <span className="absolute w-full h-0.5 bg-primary/20 bottom-0 left-0 transform -skew-x-12 hidden group-hover:block transition-all"></span>
