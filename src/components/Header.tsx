@@ -82,7 +82,7 @@ const Header: React.FC = () => {
                                             </span>
                                         )}
                                         {isActive && (
-                                            <span className="absolute -bottom-0.5 left-3 right-3 h-0.5 bg-primary/30 transform skew-x-12 -z-20"></span>
+                                            <span className="absolute bottom-[-5px] left-0 right-0 h-0.5 bg-primary/30 transform skew-x-12"></span>
                                         )}
                                     </Link>
                                 </li>
@@ -131,8 +131,8 @@ const Header: React.FC = () => {
                 leaveTo="opacity-0 -translate-y-2"
             >
                 <div id="mobile-menu" className="md:hidden bg-white border-t border-dashed border-primary/20 shadow-sm">
-                    <div className="absolute inset-0 bg-[radial-gradient(#f0f4f8_1px,transparent_1px)] bg-[length:20px_20px] opacity-40 pointer-events-none"></div>
-                    <ul className="flex flex-col space-y-2 py-3 px-5 relative">
+                    <div className="absolute inset-0 bg-[radial-gradient(#f0f4f8_1px,transparent_1px)] bg-[length:20px_20px] opacity-40 pointer-events-none -z-10"></div>
+                    <ul className="flex flex-col space-y-2 py-3 px-5 relative z-10">
                         {menuItems.map((item) => {
                             const isActive = activeSection && item.url.includes(activeSection);
                             return (

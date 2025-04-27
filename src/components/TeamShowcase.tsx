@@ -9,9 +9,15 @@ import { FaTrophy, FaMedal, FaStar, FaAward, FaGraduationCap, FaChevronDown, FaC
 const getCollegeLogo = (education: string): string => {
     if (education.includes('Harvard')) return '/images/Harvard.png';
     if (education.includes('Duke')) return '/images/Duke.png';
-    if (education.includes('UPenn')) return '/images/Penn.png';
+    if (education.includes('Penn')) return '/images/Penn.png';
     // Default fallback
     return '/images/logo.png';
+};
+
+// Function to get logo size class based on education
+const getLogoSizeClass = (education: string): string => {
+    if (education.includes('Penn')) return 'h-16 w-auto';
+    return 'h-12 w-auto'; 
 };
 
 // Array of refined achievement icons with larger size
@@ -70,12 +76,12 @@ const TeamShowcase: React.FC = () => {
     return (
         <section
             id="team"
-            className="relative py-8 overflow-hidden bg-white w-full"
+            className="relative py-12 overflow-hidden bg-white w-full"
         >
             <style jsx>{masonryStyles}</style>
             <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] bg-[length:20px_20px] opacity-25"></div>
-            <div className="w-full mx-auto px-1 sm:px-3 relative">
-                <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 w-full">
+            <div className="w-full mx-auto px-4 sm:px-6 relative">
+                <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6 w-full">
                     {teamMembers.map((member, index) => {
                         const isExpanded = expandedBios[member.name] || false;
                         
@@ -114,13 +120,13 @@ const TeamShowcase: React.FC = () => {
                                                     {member.name}
                                                 </h3>
                                                 
-                                                <div className="flex items-center justify-center sm:justify-start mt-2">
+                                                <div className="flex items-center justify-center sm:justify-start mt-3">
                                                     <Image 
                                                         src={getCollegeLogo(member.education)}
                                                         alt={member.education}
-                                                        width={120}
+                                                        width={140}
                                                         height={45}
-                                                        className="h-9 w-auto object-contain"
+                                                        className={`${getLogoSizeClass(member.education)} object-contain`}
                                                         priority
                                                         quality={100}
                                                     />
