@@ -4,7 +4,6 @@ import { IPricing } from "@/types";
 type PricingColumnProps = {
     tier: IPricing;
     highlight?: boolean;
-    tierColor: string;
     tierName: string;
 }
 
@@ -46,7 +45,7 @@ const getTierColors = (tierName: string, highlight: boolean = false) => {
     }
 };
 
-const PricingColumn: React.FC<PricingColumnProps> = ({ tier, highlight, tierColor, tierName }) => {
+const PricingColumn: React.FC<PricingColumnProps> = ({ tier, highlight, tierName }) => {
     const price = tier.monthlyPrice;
     const colors = getTierColors(tierName, highlight);
     
