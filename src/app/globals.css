@@ -6,6 +6,7 @@
   :root {
     /* Core color palette */
     --primary: #704be2;
+    --primary-lighter: #a083ed;
     --primary-5: rgba(112, 75, 226, 0.05);
     --primary-10: rgba(112, 75, 226, 0.1);
     --primary-20: rgba(112, 75, 226, 0.2);

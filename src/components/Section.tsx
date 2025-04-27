@@ -120,7 +120,23 @@ const Section: React.FC<React.PropsWithChildren<Props>> = ({ id, title, descript
                 <motion.h2 variants={{}} className="relative font-sans text-2xl md:text-3xl font-bold text-heading leading-tight">
                     <span className="relative inline-block">
                         {title}
-                        {isFeatureSection ? (
+                        {id === 'features' ? (
+                            <span className="relative block h-7 mt-2 overflow-hidden">
+                                <svg width="100%" height="10" viewBox="0 0 100 10" xmlns="http://www.w3.org/2000/svg" className="absolute top-0 left-0 w-full">
+                                    <motion.path 
+                                        d="M0,5 Q10,10 20,5 T40,5 T60,5 T80,5 T100,5" 
+                                        fill="none" 
+                                        stroke="var(--primary)" 
+                                        strokeWidth="3" 
+                                        strokeLinecap="round" 
+                                        strokeOpacity="0.8"
+                                        initial={{ pathLength: 0 }}
+                                        animate={{ pathLength: 1 }}
+                                        transition={{ delay: 0.2, duration: 1.0, ease: "easeOut" }}
+                                    />
+                                </svg>
+                            </span>
+                        ) : isFeatureSection ? (
                             <span className="relative block h-1 mt-2 bg-gradient-to-r from-primary/30 via-primary/70 to-primary/30 rounded-full"></span>
                         ) : (
                             <span className="relative block h-5 mt-1 overflow-hidden">

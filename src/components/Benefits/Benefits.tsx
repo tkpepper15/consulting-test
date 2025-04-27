@@ -91,14 +91,14 @@ const Benefits = () => {
                             }}
                             className="w-full"
                         >
-                            <div className="bg-white border-0 shadow-lg hover:shadow-xl rounded-lg overflow-hidden transition-all duration-300 flex flex-col w-full">
-                                {/* Colorful gradient bar at top */}
-                                <div className="h-1.5 bg-gradient-to-r from-primary to-accent w-full"></div>
+                            <div className="bg-[#f9f8f6] border-0 shadow-lg hover:shadow-xl rounded-lg overflow-hidden transition-all duration-300 flex flex-col w-full">
+                                {/* Purple notepad accent at top */}
+                                <div className="h-2 bg-primary w-full"></div>
                                 
                                 <div className="p-6 sm:p-7 md:p-8 flex flex-col flex-grow">
                                     {/* Title with icon */}
                                     <div className="flex flex-col items-center mb-6">
-                                        <div className="w-16 h-16 rounded-full bg-slate-50 shadow-md flex items-center justify-center mb-4">
+                                        <div className="w-16 h-16 rounded-full bg-white shadow-md flex items-center justify-center mb-4">
                                             {getBenefitTitleIcon(benefit.title)}
                                         </div>
                                         <h3 className="text-xl font-bold text-heading text-center">

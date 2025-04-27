@@ -98,9 +98,9 @@ const TeamShowcase: React.FC = () => {
                                 className="w-full"
                                 style={{ height: 'fit-content' }}
                             >
-                                <div className="bg-white border-0 shadow-lg hover:shadow-xl rounded-lg overflow-hidden transition-all duration-300 flex flex-col w-full h-full">
-                                    {/* Colorful gradient bar at top - use member.id to ensure consistent rendering */}
-                                    <div className="h-1.5 bg-gradient-to-r from-primary to-primary/80 w-full"></div>
+                                <div className="bg-[#f9f8f6] border-0 shadow-lg hover:shadow-xl rounded-lg overflow-hidden transition-all duration-300 flex flex-col w-full h-full">
+                                    {/* Purple notepad accent at top */}
+                                    <div className="h-2 bg-primary w-full"></div>
                                     
                                     <div className="p-6 sm:p-7 md:p-8 flex flex-col flex-grow">
                                         <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 mb-6">
@@ -137,17 +137,20 @@ const TeamShowcase: React.FC = () => {
                                         {/* Bio with Read More */}
                                         <div className="mb-6">
                                             <div className={`relative text-sm text-muted leading-relaxed ${!isExpanded ? 'max-h-[150px] overflow-hidden' : ''}`}>
-                                                <p>
+                                                <p className="pr-1">
                                                     {member.bio}
                                                 </p>
                                                 {!isExpanded && member.bio.length > 150 && (
-                                                    <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-white to-transparent"></div>
+                                                    <>
+                                                        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#f9f8f6] via-[#f9f8f6]/90 via-[#f9f8f6]/60 to-transparent pointer-events-none"></div>
+                                                        <div className="absolute bottom-0 left-0 right-0 h-6 bg-[#f9f8f6]"></div>
+                                                    </>
                                                 )}
                                             </div>
                                             {member.bio.length > 150 && (
                                                 <button 
                                                     onClick={() => toggleBio(member.name)} 
-                                                    className="mt-2 font-medium text-primary hover:underline inline-flex items-center text-xs transition-colors duration-200"
+                                                    className="mt-1 px-3 py-1 font-medium text-primary bg-[#f9f8f6] border border-primary/10 rounded-full hover:text-primary-lighter hover:border-primary/20 inline-flex items-center text-xs transition-all duration-200"
                                                     aria-expanded={isExpanded}
                                                 >
                                                     {isExpanded ? (

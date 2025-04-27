@@ -5,12 +5,14 @@ type TestimonialAvatarProps = {
   colorIndex: number;
 };
 
-// Color palette that matches the site's aesthetic but with different hues for testimonials
+// Purple shades for avatar backgrounds
 const bgColors = [
-  'bg-emerald-500/80',
-  'bg-blue-500/80',
-  'bg-amber-500/80',
-  'bg-rose-500/80',
+  'bg-purple-500/90',
+  'bg-indigo-500/90',
+  'bg-violet-500/90',
+  'bg-fuchsia-500/90',
+  'bg-purple-600/90',
+  'bg-indigo-600/90',
 ];
 
 const TestimonialAvatar: React.FC<TestimonialAvatarProps> = ({ name, colorIndex }) => {
@@ -21,8 +23,8 @@ const TestimonialAvatar: React.FC<TestimonialAvatarProps> = ({ name, colorIndex 
     .join('')
     .toUpperCase();
   
-  // Use modulo to wrap around the array
-  const bgColor = bgColors[colorIndex % bgColors.length];
+  // Use a prime number multiplication for more variation
+  const bgColor = bgColors[(colorIndex * 17) % bgColors.length];
 
   return (
     <div className="w-full h-full relative flex items-center justify-center">

@@ -1,27 +1,24 @@
 "use client"
-import React from 'react';
+import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { testimonials } from '@/data/testimonials';
 import TestimonialAvatar from './TestimonialAvatar';
 import { FaQuoteLeft, FaQuoteRight } from 'react-icons/fa';
 
-// Predefined color classes to avoid Tailwind's dynamic class limitations
-const colorClasses = {
-    emerald: {
-        accent: 'bg-emerald-500',
-        accentLight: 'bg-emerald-500/20',
-        text: 'text-emerald-700'
-    },
-    blue: {
-        accent: 'bg-blue-500',
-        accentLight: 'bg-blue-500/20',
-        text: 'text-blue-700'
-    },
-    amber: {
-        accent: 'bg-amber-500',
-        accentLight: 'bg-amber-500/20',
-        text: 'text-amber-700'
-    }
+// Array of subtle purple shades for testimonial backgrounds
+const purpleShades = [
+  { bg: 'bg-purple-100', accent: 'bg-purple-400', accentLight: 'bg-purple-400/20', text: 'text-purple-800' },
+  { bg: 'bg-indigo-50', accent: 'bg-indigo-400', accentLight: 'bg-indigo-400/20', text: 'text-indigo-700' },
+  { bg: 'bg-violet-50', accent: 'bg-violet-300', accentLight: 'bg-violet-300/20', text: 'text-violet-700' },
+  { bg: 'bg-fuchsia-50', accent: 'bg-fuchsia-300', accentLight: 'bg-fuchsia-300/20', text: 'text-fuchsia-700' },
+  { bg: 'bg-purple-200', accent: 'bg-purple-500', accentLight: 'bg-purple-500/20', text: 'text-purple-900' },
+  { bg: 'bg-indigo-100', accent: 'bg-indigo-500', accentLight: 'bg-indigo-500/20', text: 'text-indigo-800' },
+];
+
+// Function to get a deterministic but seemingly random shade for each testimonial
+const getTestimonialShade = (index: number) => {
+  // Use a prime number to create variation
+  return purpleShades[(index * 17) % purpleShades.length];
 };
 
 const containerVariants = {
@@ -59,9 +56,8 @@ const Testimonials: React.FC = () => {
                     viewport={{ once: true, margin: "-50px" }}
                 >
                     {testimonials.map((testimonial, index) => {
-                        // Determine color scheme based on index
-                        const colorSchemeKey = index % 3 === 0 ? 'emerald' : index % 3 === 1 ? 'blue' : 'amber';
-                        const colors = colorClasses[colorSchemeKey];
+                        // Get a purple shade for this testimonial
+                        const colors = getTestimonialShade(index);
                         
                         // Add some visual randomness by varying the angle slightly
                         const rotation = index % 2 === 0 
@@ -71,7 +67,7 @@ const Testimonials: React.FC = () => {
                         return (
                             <motion.div
                                 key={index}
-                                className="bg-white rounded-lg border border-slate-200 shadow-sm overflow-hidden transform hover:-translate-y-1 transition-transform duration-300 relative group h-full"
+                                className={`bg-white rounded-lg border border-slate-100 shadow-sm overflow-hidden transform hover:-translate-y-1 transition-transform duration-300 relative group h-full`}
                                 style={{transform: rotation}}
                                 variants={itemVariants}
                                 whileHover={{
@@ -85,31 +81,31 @@ const Testimonials: React.FC = () => {
                                 </div>
                                 
                                 {/* Top colorful bar */}
-                                <div className={`h-1 ${colors.accent} w-full`}></div>
+                                <div className={`h-1.5 ${colors.accent} w-full`}></div>
                                 
                                 {/* Content */}
                                 <div className="p-5 md:p-6 flex flex-col h-full">
                                     <div className="relative mb-auto">
-                                        <FaQuoteLeft className="absolute -top-1 -left-1 text-primary/30 text-lg" />
-                                        <p className="text-muted text-sm leading-relaxed z-10 pt-3 pb-2 px-2">
+                                        <FaQuoteLeft className={`absolute -top-1 -left-1 ${colors.text}/30 text-lg`} />
+                                        <p className="text-slate-700 text-sm leading-relaxed z-10 pt-3 pb-2 px-2">
                                             {testimonial.message}
                                         </p>
-                                        <FaQuoteRight className="absolute -bottom-1 -right-1 text-primary/30 text-lg" />
+                                        <FaQuoteRight className={`absolute -bottom-1 -right-1 ${colors.text}/30 text-lg`} />
                                     </div>
                                     
                                     <div className="flex items-center pt-4 mt-4 border-t border-slate-100">
                                         <div className="relative w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
-                                            {/* Use the proper TestimonialAvatar component */}
+                                            {/* Pass the new color index to maintain consistency */}
                                             <TestimonialAvatar 
                                                 name={testimonial.name} 
                                                 colorIndex={index} 
                                             />
                                         </div>
                                         <div className="ml-3">
-                                            <h3 className="text-sm font-bold text-heading relative inline-block mb-0 pb-0 leading-tight">
+                                            <h3 className={`text-sm font-bold ${colors.text} relative inline-block mb-0 pb-0 leading-tight`}>
                                                 {testimonial.name}
                                             </h3>
-                                            <p className="text-xs text-primary/80 mt-0 leading-tight">{testimonial.role}</p>
+                                            <p className={`text-xs ${colors.text}/80 mt-0 leading-tight`}>{testimonial.role}</p>
                                         </div>
                                     </div>
                                 </div>

@@ -45,16 +45,16 @@ const Hero: React.FC = () => {
                     transition={{ delay: 0.3, duration: 0.8, ease: [0.22, 0.03, 0.26, 1.0] }}
                     style={{ transformOrigin: 'center' }}
                 >
-                    <span className="relative inline-block pb-2" style={{ transformOrigin: 'center' }}>
+                    <span className="relative inline-block pb-8 md:pb-16" style={{ transformOrigin: 'center' }}>
                         {heroDetails.heading}
                         <svg className="absolute bottom-0 left-0 w-full -z-20" viewBox="0 0 100 15" preserveAspectRatio="none" style={{ transformOrigin: 'center' }}>
                             <motion.path 
                                 d="M0,7 C20,1 50,13 80,5 C90,3 95,7 100,6" 
                                 fill="none" 
-                                stroke="var(--primary)" 
-                                strokeWidth="3" 
+                                stroke="var(--primary-lighter)" 
+                                strokeWidth="4" 
                                 strokeLinecap="round" 
-                                strokeOpacity="0.4"
+                                strokeOpacity="0.8"
                                 initial={{ pathLength: 0 }}
                                 animate={{ pathLength: 1 }}
                                 transition={{ delay: 0.6, duration: 1.2, ease: "easeOut" }}

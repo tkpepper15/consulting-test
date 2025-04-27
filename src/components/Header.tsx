@@ -20,7 +20,7 @@ const Header: React.FC = () => {
             setScrolled(window.scrollY > 10);
             
             // Update active section based on scroll position
-            const sections = ['team', 'features', 'pricing', 'testimonials', 'faq', 'contact'];
+            const sections = ['team', 'features', 'pricing', 'faq', 'contact'];
             const currentSection = sections.find(section => {
                 const element = document.getElementById(section);
                 if (element) {
@@ -41,57 +41,56 @@ const Header: React.FC = () => {
     };
 
     return (
-        <header className={`fixed top-0 left-0 right-0 z-50 w-full bg-white/90 backdrop-blur-[2px] transition-all duration-300 ${scrolled ? 'py-1 shadow-sm' : 'py-2'}`}>
-            {/* Decorative top line - more subtle */}
-            <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20"></div>
+        <header className={`fixed top-0 left-0 right-0 z-50 w-full bg-white/90 backdrop-blur-md transition-all duration-300 ${scrolled ? 'shadow-md' : ''}`}>
+            {/* Decorative top gradient line */}
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-400 via-violet-500 to-purple-600"></div>
             
             <div className="px-4 sm:px-6 mx-auto max-w-7xl">
-                <nav className="flex justify-between items-center h-10">
+                <nav className="flex justify-between items-center h-16">
                     {/* Logo */}
-                    <Link href="/" className="flex items-center gap-1.5 group">
+                    <Link href="/" className="flex items-center gap-2 group">
                         <Image 
                             src="/images/logo.png" 
                             alt={siteDetails.siteName} 
                             width={32} 
                             height={32} 
-                            className="h-8 w-auto"
+                            className="h-7 w-auto transform group-hover:scale-105 transition-transform duration-300"
                         />
-                        <span className="font-sans text-sm font-bold text-heading">
+                        <span className="font-sans text-sm font-bold text-heading group-hover:text-purple-600 transition-colors">
                             {siteDetails.siteName}
-                            <span className="absolute w-full h-0.5 bg-primary/20 bottom-0 left-0 transform -skew-x-12 hidden group-hover:block transition-all"></span>
                         </span>
                     </Link>
 
-                    {/* Desktop Menu */}
+                    {/* Desktop Menu - with pill-shaped active indicator */}
                     <ul className="hidden md:flex items-center">
-                        {menuItems.map((item) => {
-                            const isActive = activeSection && item.url.includes(activeSection);
-                            return (
-                                <li key={item.text} className="relative mx-1">
-                                    <Link 
-                                        href={item.url} 
-                                        className={`relative z-10 font-sans text-xs font-medium ${isActive ? 'text-primary' : 'text-foreground/80 hover:text-primary'} px-3 py-1.5 transition-colors inline-block`}
-                                    >
-                                        {item.text}
-                                        {item.text === "Our Team" && (
-                                            <span className="absolute right-0 top-0 transform translate-x-1 -translate-y-1">
-                                                <span className="flex h-1.5 w-1.5 relative">
-                                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                                                    <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-primary"></span>
-                                                </span>
-                                            </span>
-                                        )}
-                                        {isActive && (
-                                            <span className="absolute bottom-[-5px] left-0 right-0 h-0.5 bg-primary/30 transform skew-x-12"></span>
-                                        )}
-                                    </Link>
-                                </li>
-                            );
-                        })}
-                        <li className="ml-3">
+                        <div className="flex items-center bg-slate-100/80 rounded-md px-2 mr-3">
+                            {menuItems.map((item) => {
+                                const isActive = activeSection && item.url.includes(activeSection);
+                                return (
+                                    <li key={item.text} className="relative mx-1">
+                                        <Link 
+                                            href={item.url} 
+                                            className={`relative z-10 font-sans text-sm font-medium px-4 py-2.5 rounded-md transition-all duration-300 inline-block ${
+                                                isActive 
+                                                    ? 'text-white' 
+                                                    : 'text-slate-600 hover:text-purple-600 hover:bg-slate-200/50'
+                                            }`}
+                                        >
+                                            {/* Active background with better positioning */}
+                                            {isActive && (
+                                                <span className="absolute inset-0 bg-gradient-to-r from-purple-500 to-violet-500 rounded-md -z-10 shadow-sm"></span>
+                                            )}
+                                            
+                                            {item.text}
+                                        </Link>
+                                    </li>
+                                );
+                            })}
+                        </div>
+                        <li>
                             <Link 
                                 href="#pricing" 
-                                className="group relative z-10 font-sans text-xs font-bold text-white bg-primary px-3.5 py-1 rounded-md transform hover:-translate-y-0.5 transition-transform inline-block"
+                                className="group relative z-10 font-sans text-sm font-bold text-white bg-primary px-4 py-2 rounded-md transform hover:-translate-y-0.5 transition-all duration-200 inline-block"
                             >
                                 <span className="absolute inset-0 bg-black/70 translate-x-1 translate-y-1 rounded-md -z-10 group-hover:translate-x-1.5 group-hover:translate-y-1.5 transition-transform"></span>
                                 Get Started
@@ -104,15 +103,14 @@ const Header: React.FC = () => {
                         <button
                             onClick={toggleMenu}
                             type="button"
-                            className="relative z-10 font-sans w-7 h-7 flex items-center justify-center"
+                            className="relative z-10 font-sans w-10 h-10 flex items-center justify-center rounded-md bg-purple-100 text-purple-600"
                             aria-controls="mobile-menu"
                             aria-expanded={isOpen}
                         >
-                            <span className="absolute -inset-0.5 bg-primary/10 rounded rotate-3 -z-10"></span>
                             {isOpen ? (
-                                <HiOutlineXMark className="h-4 w-4 text-primary" aria-hidden="true" />
+                                <HiOutlineXMark className="h-5 w-5" aria-hidden="true" />
                             ) : (
-                                <HiBars3 className="h-4 w-4 text-primary" aria-hidden="true" />
+                                <HiBars3 className="h-5 w-5" aria-hidden="true" />
                             )}
                             <span className="sr-only">Toggle navigation</span>
                         </button>
@@ -130,42 +128,39 @@ const Header: React.FC = () => {
                 leaveFrom="opacity-100 translate-y-0"
                 leaveTo="opacity-0 -translate-y-2"
             >
-                <div id="mobile-menu" className="md:hidden bg-white border-t border-dashed border-primary/20 shadow-sm">
-                    <div className="absolute inset-0 bg-[radial-gradient(#f0f4f8_1px,transparent_1px)] bg-[length:20px_20px] opacity-40 pointer-events-none -z-10"></div>
-                    <ul className="flex flex-col space-y-2 py-3 px-5 relative z-10">
+                <div id="mobile-menu" className="md:hidden bg-white border-t border-purple-100 shadow-md">
+                    {/* Simple gradient background instead of complex decorative elements */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-white to-slate-50/50"></div>
+                    
+                    <ul className="flex flex-col space-y-2 py-4 px-6 relative z-10">
                         {menuItems.map((item) => {
                             const isActive = activeSection && item.url.includes(activeSection);
                             return (
                                 <li key={item.text}>
                                     <Link 
                                         href={item.url} 
-                                        className={`font-sans text-xs ${isActive ? 'text-primary' : 'text-foreground hover:text-primary'} block transform hover:-translate-x-1 transition-transform py-1 flex items-center gap-1.5`} 
+                                        className={`font-sans text-sm block py-2 px-3 rounded-md transition-all duration-200 ${
+                                            isActive 
+                                                ? 'text-white bg-gradient-to-r from-purple-500 to-violet-500 font-medium' 
+                                                : 'text-slate-600 hover:text-purple-600 hover:bg-purple-50'
+                                        }`}
                                         onClick={toggleMenu}
                                     >
-                                        {item.text === "Our Team" && (
-                                            <FaUserGraduate className="text-primary w-3 h-3" />
-                                        )}
                                         {item.text}
-                                        {item.text === "Our Team" && (
-                                            <span className="flex h-1.5 w-1.5 relative ml-1">
-                                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                                                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-primary"></span>
-                                            </span>
-                                        )}
                                     </Link>
                                 </li>
                             );
                         })}
-                        <li className="pt-1">
+                        <div className="flex gap-3 items-center pt-3 mt-1">
                             <Link 
                                 href="#pricing" 
-                                className="group relative z-10 font-sans inline-block text-xs font-bold text-white bg-primary px-3.5 py-1 rounded-md" 
+                                className="group relative z-10 font-sans inline-block text-sm font-bold text-white bg-primary px-4 py-2 rounded-md flex-1 text-center" 
                                 onClick={toggleMenu}
                             >
                                 <span className="absolute inset-0 bg-black/70 translate-x-1 translate-y-1 rounded-md -z-10 group-hover:translate-x-1.5 group-hover:translate-y-1.5 transition-transform"></span>
                                 Get Started
                             </Link>
-                        </li>
+                        </div>
                     </ul>
                 </div>
             </Transition>

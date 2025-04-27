@@ -40,7 +40,7 @@ const HomePage: React.FC = () => {
           <Section
             id="features"
             title="Our Services"
-            description="Expert guidance throughout your application journey to the nation’s #1 public high school
+            description="Expert guidance throughout your application journey to the nation's #1 public high school
 (NCSSM) and Top 20 Universities. Get personalized support with monthly check-ins, SAT and
 ACT prep, class selection, and more!"
           >
@@ -50,7 +50,7 @@ ACT prep, class selection, and more!"
       </LazyAnimation>
       
       {/* Pricing Section with subtle primary background */}
-      <div className="bg-primary/[0.03] py-12 border-t border-b border-primary/10 my-12">
+      <div className="bg-primary/[0.03] py-12 border-t border-primary/10 mt-12">
         <LazyAnimation delay={0.2} type="fade">
           <Container usePaper={false}>
             <Section
@@ -65,6 +65,7 @@ ACT prep, class selection, and more!"
       </div>
 
       {/* Testimonials Section with white background */}
+      {/*
       <div className="bg-white py-12 border-b border-primary/5">
         <LazyAnimation delay={0.2} type="fade">
           <Container usePaper={false}>
@@ -78,6 +79,7 @@ ACT prep, class selection, and more!"
           </Container>
         </LazyAnimation>
       </div>
+      */}
       
       {/* FAQ Section with subtle accent background */}
       <div className="bg-accent/[0.03] py-12 border-t border-b border-accent/10">
