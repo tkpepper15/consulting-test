@@ -25,7 +25,6 @@ const Pricing: React.FC = () => {
                         <PricingColumn 
                             tier={tier} 
                             highlight={tier.popular}
-                            tierColor={tierColors[index].color}
                             tierName={tierColors[index].name}
                         />
                     </div>
