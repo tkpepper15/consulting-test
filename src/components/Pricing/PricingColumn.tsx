@@ -65,18 +65,24 @@ const PricingColumn: React.FC<PricingColumnProps> = ({ tier, highlight, tierName
                 <div className={`absolute top-0 left-0 right-0 h-2 ${colors.accent}`}></div>
                 
                 <div className="p-5 md:p-6 flex-grow">
-                    {/* Header with tier name */}
-                    <div className="mb-4">
-                        <span className={`text-xs uppercase font-semibold tracking-wider mb-1 inline-block rounded px-2 py-0.5 bg-white`}>{tierName}</span>
-                        <h3 className="text-lg font-semibold text-heading mb-1 relative inline-block">
-                            {tier.name}
-                            <div className={`absolute -bottom-1 left-0 right-0 h-0.5 ${colors.accent}/20 transform skew-x-12`}></div>
-                        </h3>
-                        <p className="text-sm text-muted">{getTierDescription(tier.name)}</p>
+                    {/* Header with tier name and description */}
+                    <div className="mb-5 flex">
+                        <div className="flex-1">
+                            <h3 className="text-xl font-bold text-heading mb-1">
+                                {tier.name}
+                            </h3>
+                            <p className="text-sm text-muted">{getTierDescription(tier.name)}</p>
+                        </div>
+                        <div className="ml-2">
+                            <span className={`text-[10px] uppercase font-bold tracking-wider rounded-full px-1.5 py-0.5 ${colors.accent}/10 ${colors.text} border ${colors.border} inline-flex items-center`}>
+                                <span className={`w-1.5 h-1.5 rounded-full ${colors.accent} mr-1`}></span>
+                                {tierName}
+                            </span>
+                        </div>
                     </div>
                     
                     {/* Price */}
-                    <div className="mt-2 mb-4">
+                    <div className="mb-6">
                         <div className="flex items-baseline">
                             <span className="text-3xl font-bold text-heading">
                                 ${price}
@@ -102,7 +108,7 @@ const PricingColumn: React.FC<PricingColumnProps> = ({ tier, highlight, tierName
                         href="#contact" 
                         className={`btn ${highlight ? 'btn-primary' : 'btn-secondary'} w-full`}
                     >
-                        Get Started
+                        Book Now
                     </a>
                 </div>
             </div>

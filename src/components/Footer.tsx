@@ -132,6 +132,9 @@ const Footer: React.FC = () => {
                     <p className="font-sans text-xs mt-1 text-primary/60">
                         Success starts with expert guidance
                     </p>
+                    <p className="font-sans text-xs mt-2 text-slate-400 hover:text-primary/70 transition-colors">
+                        Designed by <a href="https://www.tejjaskaul.com/" target="_blank" rel="noopener noreferrer" className="underline decoration-dotted underline-offset-2 hover:text-primary transition-colors">tejjask</a>
+                    </p>
                 </div>
             </div>
         </footer>

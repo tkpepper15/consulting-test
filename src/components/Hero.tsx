@@ -9,7 +9,7 @@ const Hero: React.FC = () => {
     return (
         <section
             id="hero"
-            className="relative min-h-[85vh] flex flex-col items-center justify-center pt-16 pb-12 md:pt-20 md:pb-14 px-5 overflow-hidden"
+            className="relative min-h-[85vh] flex flex-col items-center justify-center pt-24 pb-12 md:pt-20 md:pb-14 px-5 overflow-hidden"
         >
             {/* Hero-specific top and bottom accent bars */}
             <div className="absolute inset-0 -z-10">
@@ -77,7 +77,7 @@ const Hero: React.FC = () => {
                 
                 {/* CTA buttons with improved styling */}
                 <motion.div 
-                    className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3"
+                    className="mt-8 flex flex-row items-center justify-center gap-4 w-full mx-auto"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5, duration: 0.7, ease: [0.22, 0.03, 0.26, 1.0] }}
@@ -85,19 +85,19 @@ const Hero: React.FC = () => {
                 >
                     <Link 
                         href="#pricing" 
-                        className="btn btn-primary inline-flex items-center justify-center relative overflow-hidden group"
+                        className="btn btn-primary inline-flex items-center justify-center relative overflow-hidden group w-32"
                         style={{ transformOrigin: 'center' }}
                     >
-                        <span className="relative z-10">View Pricing</span>
+                        <span className="relative z-10 text-sm sm:text-base">Book Now</span>
                         <div className="absolute inset-0 bg-primary/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" style={{ transformOrigin: 'center' }}></div>
                         <div className="absolute -inset-1 bg-gradient-to-r from-primary/30 to-primary/10 blur opacity-0 group-hover:opacity-40 transition-opacity duration-500" style={{ transformOrigin: 'center' }}></div>
                     </Link>
                     <Link 
                         href="#contact" 
-                        className="btn btn-secondary inline-flex items-center justify-center relative overflow-hidden group"
+                        className="btn btn-secondary inline-flex items-center justify-center relative overflow-hidden group w-32"
                         style={{ transformOrigin: 'center' }}
                     >
-                        <span className="relative z-10">Contact Us</span>
+                        <span className="relative z-10 text-sm sm:text-base">Contact Us</span>
                         <div className="absolute inset-0 bg-accent/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" style={{ transformOrigin: 'center' }}></div>
                         <div className="absolute -inset-1 bg-gradient-to-r from-accent/30 to-accent/10 blur opacity-0 group-hover:opacity-40 transition-opacity duration-500" style={{ transformOrigin: 'center' }}></div>
                     </Link>
@@ -111,15 +111,6 @@ const Hero: React.FC = () => {
                     transition={{ delay: 0.6, duration: 0.7, ease: [0.22, 0.03, 0.26, 1.0] }}
                     style={{ transformOrigin: 'center' }}
                 >
-                    <Link 
-                        href="#team"
-                        className="relative z-10 py-2 px-4 bg-white border border-slate-200 font-sans rounded-md shadow-sm hover:-translate-y-0.5 transition-transform duration-300 flex items-center gap-1"
-                        style={{ transformOrigin: 'center' }}
-                    >
-                        <span className="font-medium text-muted text-sm">Meet Our</span>
-                        <span className="font-bold text-primary text-sm">Ivy League+ Mentors</span>
-                        <div className="absolute -bottom-1 -right-1 w-2 h-2 bg-primary rounded-sm" style={{ transformOrigin: 'center' }}></div>
-                    </Link>
                 </motion.div>
             </motion.div>
         </section>

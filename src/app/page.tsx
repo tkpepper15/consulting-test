@@ -12,7 +12,7 @@ import LazyAnimation from "@/components/LazyAnimation";
 
 const HomePage: React.FC = () => {
   return (
-    <main>
+    <main className="mt-5 sm:mt-0">
       {/* Hero Section */}
       <div className="mb-0">
         <Hero />
@@ -25,7 +25,7 @@ const HomePage: React.FC = () => {
             <Section
               id="team"
               title="Meet Our Ivy League+ Mentors"
-              description="Expert guidance from students at the world's top universities with experience in the current admissions landscape"
+              description="Tailored guidance throughout your application journey from accomplished students"
             >
               <TeamShowcase />
             </Section>
@@ -39,8 +39,7 @@ const HomePage: React.FC = () => {
           <Section
             id="features"
             title="Our Services"
-            description="Expert guidance throughout your application journey to the nation's #1 public high school
-(NCSSM) and Top 20 Universities. Get personalized support with monthly check-ins, SAT and
+            description="Get personalized support with monthly check-ins, SAT and
 ACT prep, class selection, and more!"
           >
             <Benefits />
@@ -55,7 +54,7 @@ ACT prep, class selection, and more!"
             <Section
               id="pricing"
               title="Simple, Transparent Pricing"
-              description="Choose the package that fits your needs"
+              description="Choose the consulation package that fits your needs"
             >
               <Pricing />
             </Section>
@@ -87,7 +86,7 @@ ACT prep, class selection, and more!"
             <Section
               id="faq"
               title="Frequently Asked Questions"
-              description="Get answers to common questions"
+              description="Get answers to your burning questions"
             >
               <FAQ />
             </Section>

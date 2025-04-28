@@ -1,5 +1,5 @@
 export const heroDetails = {
     heading: 'Expert Admissions Guidance from Ivy League+ Students',
-    subheading: 'Get personalized support from accomplished mentors to maximize your chances at NCSSM and Top 20 Universities',
+    subheading: "Maximize your chances at NCSSM—the nation's #1 public high school—and Top 20 Universities with our help",
     centerImageSrc: '/images/college-hero.webp',
 }
