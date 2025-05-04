@@ -2,15 +2,15 @@ import { IPricing } from "@/types";
 
 export const tiers: IPricing[] = [
     {
-        name: 'Free Consultation',
+        name: 'Introductory Session',
         monthlyPrice: 0,
         yearlyPrice: 0,
         features: [
-            '30-minute consultation',
-            '30 minutes of offline editing',
+            'Brief overview + Q&A',
             'Personalized feedback',
             'Application strategy assessment',
-            'School fit analysis'
+            'School fit analysis',
+            'One-time ONLY'
         ],
     },
     {

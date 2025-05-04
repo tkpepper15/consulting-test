@@ -84,7 +84,7 @@ const Hero: React.FC = () => {
                     style={{ transformOrigin: 'center' }}
                 >
                     <Link 
-                        href="#pricing" 
+                        href="#"
                         className="btn btn-primary inline-flex items-center justify-center relative overflow-hidden group w-32"
                         style={{ transformOrigin: 'center' }}
                     >
@@ -93,7 +93,7 @@ const Hero: React.FC = () => {
                         <div className="absolute -inset-1 bg-gradient-to-r from-primary/30 to-primary/10 blur opacity-0 group-hover:opacity-40 transition-opacity duration-500" style={{ transformOrigin: 'center' }}></div>
                     </Link>
                     <Link 
-                        href="#contact" 
+                        href="mailto:Hellouniprep@gmail.com" 
                         className="btn btn-secondary inline-flex items-center justify-center relative overflow-hidden group w-32"
                         style={{ transformOrigin: 'center' }}
                     >

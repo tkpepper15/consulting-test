@@ -30,11 +30,7 @@ export const footerDetails: {
             url: "#contact"
         }
     ],
-    email: 'contact@uniprep.com',
-    telephone: '+1 (800) 555-0123',
-    socials: {
-        instagram: 'https://www.instagram.com/uniprep',
-        twitter: 'https://twitter.com/uniprep',
-        linkedin: 'https://www.linkedin.com/company/uniprep'
-    }
+    email: 'Hellouniprep@gmail.com',
+    telephone: '',
+    socials: {}
 }
