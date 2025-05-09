@@ -22,15 +22,15 @@ export const teamMembers: TeamMember[] = [
     },
     {
         name: "Nikhil",
-        education: "Harvard University",
+        education: "MIT",
         accomplishments: [
-            "Harvard College & MIT admit",
+            "MIT & Harvard College admit",
             "ISEF & EUCYS 1st Place Winner",
             "United Nations invited speaker",
             "UNC (Morehead-Cain Finalist)",
             "$500k+ in scholarships and grants"
         ],
-        bio: "Nikhil is a rising freshman at Harvard College, and is an internationally recognized researcher and speaker. He has academic interests in mathematics, mechanistic interpretability, and social studies, among others.\n\nCurrently, he's studying algorithms to accelerate numerical integration, the anisotropy of embeddings, and contemporary approaches to AI governance. Nikhil is excited to work with students who are interested in building a brighter future for themselves and the world! He specializes in framing STEM students' stories in a way that makes them shine to admissions committees.\n\nAmong his accomplishments are: winning first place at multiple (inter)national science competitions (including ISEF and EUCYS), publishing his research, being invited to speak at the United Nations, the Taco Bell Live Mas scholarship and Cameron Scholarship Finalist, Math, Chemistry, Biology, and CS national olympiad recognitions, and the US Presidential Scholarship. He was admitted to Harvard, MIT, Duke (AB Scholarship Finalist, full ride), and UNC Chapel Hill (Morehead-Cain Finalist and Honors College, full tuition), and has won grants, prizes, and scholarships totalling upward of $500k. ",
+        bio: "Nikhil is a rising freshman at MIT, and is an internationally recognized researcher and speaker. He has academic interests in mathematics, mechanistic interpretability, and social studies, among others.\n\nCurrently, he's studying algorithms to accelerate numerical integration, the anisotropy of embeddings, and contemporary approaches to AI governance. Nikhil is excited to work with students who are interested in building a brighter future for themselves and the world! He specializes in framing STEM students' stories in a way that makes them shine to admissions committees.\n\nAmong his accomplishments are: winning first place at multiple (inter)national science competitions (including ISEF and EUCYS), publishing his research, being invited to speak at the United Nations, the Taco Bell Live Mas scholarship and Cameron Scholarship Finalist, Math, Chemistry, Biology, and CS national olympiad recognitions, and the US Presidential Scholarship. He was admitted to MIT, Harvard, Duke (AB Scholarship Finalist, full ride), and UNC Chapel Hill (Morehead-Cain Finalist and Honors College, full tuition), and has won grants, prizes, and scholarships totalling upward of $500k. ",
         imageSrc: "/images/Nikhil_Headshot.png"
     },
     {
