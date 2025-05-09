@@ -108,7 +108,7 @@ const PricingColumn: React.FC<PricingColumnProps> = ({ tier, highlight, tierName
                         href="#contact" 
                         className={`btn ${highlight ? 'btn-primary' : 'btn-secondary'} w-full`}
                     >
-                        Book Now
+                        Get Started
                     </a>
                 </div>
             </div>

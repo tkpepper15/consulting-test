@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { ctaDetails } from "@/data/cta";
+import ContactForm from "./ContactForm";
 
 const CTA: React.FC = () => {
     // List of features to display
@@ -49,15 +49,9 @@ const CTA: React.FC = () => {
                             {/* Subheading */}
                             <p className="mx-auto max-w-xl text-muted mb-5 font-sans">{ctaDetails.subheading}</p>
 
-                            {/* Button */}
-                            <div className="mb-1">
-                                <Link 
-                                    href={ctaDetails.buttonUrl}
-                                    className="group relative font-sans font-bold text-white bg-primary px-8 py-3 inline-block transform hover:-translate-y-0.5 transition-transform rounded-md"
-                                >
-                                    <span className="absolute inset-0 bg-black/70 translate-x-1.5 translate-y-1.5 rounded-md -z-10 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform"></span>
-                                    {ctaDetails.buttonText}
-                                </Link>
+                            {/* Contact Form */}
+                            <div className="w-full max-w-2xl mx-auto">
+                                <ContactForm />
                             </div>
                             
                             {/* Feature list */}

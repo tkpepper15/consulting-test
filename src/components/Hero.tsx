@@ -17,7 +17,7 @@ const Hero: React.FC = () => {
                 <div className="absolute left-0 right-0 top-0 h-6 bg-gradient-to-r from-primary/80 to-primary/90" style={{ transformOrigin: 'center' }}></div>
                 <div className="absolute left-0 right-0 bottom-0 h-6 bg-gradient-to-r from-accent/70 to-accent/80" style={{ transformOrigin: 'center' }}></div>
             </div>
-            
+
             <motion.div 
                 className="relative max-w-4xl mx-auto z-10 flex flex-col items-center"
                 initial={{ opacity: 0, y: 20 }}
@@ -84,11 +84,11 @@ const Hero: React.FC = () => {
                     style={{ transformOrigin: 'center' }}
                 >
                     <Link 
-                        href="#"
+                        href="#contact"
                         className="btn btn-primary inline-flex items-center justify-center relative overflow-hidden group w-32"
                         style={{ transformOrigin: 'center' }}
                     >
-                        <span className="relative z-10 text-sm sm:text-base">Book Now</span>
+                        <span className="relative z-10 text-sm sm:text-base">Get Started</span>
                         <div className="absolute inset-0 bg-primary/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" style={{ transformOrigin: 'center' }}></div>
                         <div className="absolute -inset-1 bg-gradient-to-r from-primary/30 to-primary/10 blur opacity-0 group-hover:opacity-40 transition-opacity duration-500" style={{ transformOrigin: 'center' }}></div>
                     </Link>
