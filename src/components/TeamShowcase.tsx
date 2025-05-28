@@ -8,6 +8,7 @@ import { FaTrophy, FaMedal, FaStar, FaAward, FaGraduationCap, FaChevronDown, FaC
 // Function to get the college logo path based on education name
 const getCollegeLogo = (education: string): string => {
     if (education.includes('MIT')) return '/images/MIT_logo.png';
+    if (education.includes('Yale')) return '/images/Yale_Logo.png';
     if (education.includes('Harvard')) return '/images/Harvard.png';
     if (education.includes('Duke')) return '/images/Duke.png';
     if (education.includes('Penn')) return '/images/Penn.png';
@@ -18,6 +19,7 @@ const getCollegeLogo = (education: string): string => {
 // Function to get logo size class based on education
 const getLogoSizeClass = (education: string): string => {
     if (education.includes('Penn')) return 'h-16 w-auto';
+    if (education.includes('Yale')) return 'h-14 w-auto';
     return 'h-12 w-auto'; 
 };
 

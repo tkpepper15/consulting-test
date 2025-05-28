@@ -34,6 +34,19 @@ export const teamMembers: TeamMember[] = [
         imageSrc: "/images/Nikhil_Headshot.png"
     },
     {
+        name: "Ava",
+        education: "Yale University",
+        accomplishments: [
+            "Yale Hahn Scholar in Biomedical Engineering",
+            "Regeneron Science Talent Search 2nd Place Winner",
+            "ISEF Grand Award in Biomedical Sciences",
+            "FIRST Robotics World Championship Dean's List Finalist",
+            "Princeton, Duke, Dartmouth, UNC (Morehead-Cain Finalist)"
+        ],
+        bio: "Ava Cummings is a freshman Hahn Scholar at Yale College pursuing a degree in Biomedical Engineering with a certificate in Native American and Indigenous Studies.\n\nCommitted to biomedical research, Ava has placed second in the Regeneron Science Talent Search, received a Grand Award at the International Science and Engineering Fair in Biomedical and Health Sciences, and been recognized by publications and organizations including NPR, Science News, and AISES Winds of Change. Recently, Ava has become an intern for Regeneron Pharmaceuticals in Enzyme Replacement Therapies, focused on bioengineering methods of drug delivery to treat neurovisceral Acid Sphingomyelinase Deficiency.\n\nAlso an award winning pianist, avid reader, and FIRST Robotics Alumni, Ava has served in several FIRST mechanical leadership roles, being selected as an FRC World Championship Dean's List Finalist. She has also applied her engineering knowledge with Emerging Technology Institute to develop AI drones and assist in hosting US Special Operations Command Technical Experimentation.\n\nAva was also admitted to Princeton University, Duke University (Robertson Scholars Semi-Finalist), Dartmouth College, and UNC Chapel-Hill (Morehead-Cain Finalist and Honors College).",
+        imageSrc: "/images/Ava_Headshot.png"
+    },
+    {
         name: "Ronit",
         education: "Duke University",
         accomplishments: [
